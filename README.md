@@ -1,11 +1,64 @@
-# Templates for ML-CV Camp
+# Templates for Machine Learning and Computer Vision Projects
 
-Will be updated as week progresses
+This week-long program introduces a number of projects related to computer vision and machine learning using Python and JavaScript. 
 
-Inital Setup is:
+This repository will be updated as week progresses.
+
+Inital setup is
+
 ```
-pip install pipenv
 pipenv install
 ```
 
-This will install all requirements for the projects we will be conducting
+This will install all requirements for the projects in a new Python virtual environment.
+
+Then activate the virtual environment with
+
+```
+pipenv shell
+```
+
+## Installation on a new computer
+
+We are using Python 3.7.4, P5.js, VS Code, Git for Windows, and Github Desktop. The repository contains a number of template files that include p5.js and other dependencies. Python dependencies are managed with Pipenv.
+
+Download links:
+* [Python 3.7.4](https://www.python.org/downloads/)
+* [VS Code](https://code.visualstudio.com/Download)
+* [Git for Windows](https://gitforwindows.org/)
+* [Github Desktop](https://desktop.github.com/)
+
+## Installation Steps:
+
+**Python 3.7**
+
+Install Python 3.7 64 bit version. Make sure to add the Python installation directory to the system Path during installation.
+
+**Windows Prerequisites for NLTK**
+* Install [CMake](https://cmake.org/download) and add to the system path.
+* Install Visual Studio
+* Select "Desktop development with C++" during installation
+
+**VS Code**
+
+Select default shell. Ctrl-Shift-P, select default shell, choose bash. Open a terminal and run these commands:
+
+Install pipenv
+
+``` pip install pipenv ```
+
+Clone this git repository
+
+``` git clone https://github.com/holyokecodes/ML-CV-Templates.git ```
+
+Change to the new directory
+
+``` cd ML-CV-Templates ```
+
+Install dependencies
+
+``` pipenv install ```
+
+Start development
+
+``` pipenv shell ```
