@@ -45,20 +45,30 @@ Select default shell. Ctrl-Shift-P, select default shell, choose bash. Open a te
 
 Install pipenv
 
-``` pip install pipenv ```
+``` 
+pip install pipenv 
+```
 
 Clone this git repository
 
-``` git clone https://github.com/holyokecodes/ML-CV-Templates.git ```
+``` 
+git clone https://github.com/holyokecodes/ML-CV-Templates.git 
+```
 
 Change to the new directory
 
-``` cd ML-CV-Templates ```
+``` 
+cd ML-CV-Templates 
+```
 
 Install dependencies
 
-``` pipenv install ```
+``` 
+pipenv install 
+```
 
 Start development
 
-``` pipenv shell ```
+``` 
+pipenv shell 
+```
