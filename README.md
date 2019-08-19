@@ -34,7 +34,7 @@ Download links:
 
 Install Python 3.7 64 bit version. Make sure to add the Python installation directory to the system Path during installation.
 
-**Windows Prerequisites for NLTK**
+**Windows Prerequisites for face_recognition and dlib**
 * Install [CMake](https://cmake.org/download) and add to the system path.
 * Install Visual Studio
 * Select "Desktop development with C++" during installation
