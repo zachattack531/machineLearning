@@ -9,6 +9,7 @@ class Fly {
         this.food = food;
         this.fitness = 0;
         this.hitSomething = false;
+        this.gotFood = false;
     }
 
     calcFitness(){
@@ -41,6 +42,7 @@ class Fly {
         //HitFood?
         let distance = dist(this.pos.x, this.pos.y, this.food.pos.x, this.food.pos.y);
         if(distance < this.food.radius){
+            this.gotFood = true;
             this.hitSomething = true;
         }
         this.calcFitness();
