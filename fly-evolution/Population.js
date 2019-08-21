@@ -19,6 +19,39 @@ class Population {
             this.flies = newPopulation;
         }
     }
+
+    evaluate(){
+        let maxFit = 0;
+
+        for(let i = 0; i < this.popSize; i++){
+            if(this.flies[i].fitness > maxFit){
+                maxFit = this.flies[i].fitness;
+            }
+        }
+        for(let i = 0; i < this.popSize; i++){
+            let poolRank = int(this.flies[i].fitness/maxFit * 40);
+            for(let j = 0; j < poolRank; j++){
+                this.pool.push(this.flies[i])
+            }
+        }
+    }
+    generateNewPopulation(mutationRate){
+        let newFlies = [];
+        for(let i = 0;  i < this.popSize; i++){
+            let newFly =new Fly(this.lifeSpan, this.reward, this.punishment, this.food);
+
+            let randomA = int(random(0, this.pool.length));
+            let randomB = int(random(0, this.pool.length));
+
+            let parentA = this.pool[randomA];
+            let parentB = this.pool[randomB];
+
+            newFly.dna.generateMergedDNA(mutationRate, parentA, parentB);
+
+            newFlies.push(newFly);
+        }
+        return newFlies;
+    }
     run(count){
         this.food.show();
         this.wall.show();

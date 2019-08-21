@@ -54,6 +54,7 @@ class Fly {
         noStroke();
         translate(this.pos.x, this.pos.y);
         fill(0);
+        textSize(10);
         text(this.fitness.toFixed(1), 0, 0);
         rotate(this.vel.heading());
         fill(0, 0, 0, 150);
