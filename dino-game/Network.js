@@ -1,5 +1,5 @@
 class NeuralNetwork {
-    constructor() {
-
+    constructor(a,b,c,d) {
+        
     }
 }

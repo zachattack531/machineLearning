@@ -1,6 +1,6 @@
 class Cactus {
     constructor() {
-        this.count = random(0,3);
+        this.count = random(0,6);
         this.speed = 5;
         this.width = 20;
         this.height = 50;

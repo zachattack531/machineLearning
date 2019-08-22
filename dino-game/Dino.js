@@ -20,7 +20,7 @@ class Dino {
 
     update(closestCactus){
         let groundPos = this.calcGroundPos();
-        this.vel.y += -0.9;
+        this.vel.y -= 0.9;
         this.pos.y -= this.vel.y;
         
         if(this.pos.y >= groundPos){
@@ -32,8 +32,9 @@ class Dino {
         if(this.hitCactus(closestCactus)){
             this.isAlive = false;
         }
+        
     }
-
+    
     jump(){
         if (this.pos.y == this.calcGroundPos()&&this.height > this.originalWidth){
             this.vel.y += 8;
