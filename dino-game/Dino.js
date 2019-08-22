@@ -1,7 +1,9 @@
 class Dino {
     constructor(playerControlled) {
-        this.width = 30;
-        this.height = 50;
+        this.originalWidth = 30;
+        this.originalHeight = 50;
+        this.height = this.originalHeight;
+        this.width = this.originalWidth;
 
         this.pos = createVector(width/4, height - height/ 4 - this.height / 2);
         this.vel = createVector();
@@ -14,19 +16,33 @@ class Dino {
     }    
 
     update(){
-        groundPos=this.calcGroundPos();
+        let groundPos = this.calcGroundPos();
         this.vel.y += -0.25;
         this.pos.y -= this.vel.y;
-
+        
         if(this.pos.y >= groundPos){
             this.pos.y = groundPos;
             this.vel.y = 0;
-        
+            
+        }
     }
-    jump(){
-        if this.pos.y == this.calcGroundPos(){
-            this.vel.y = 7;
 
+    jump(){
+        if (this.pos.y == this.calcGroundPos()&&this.height > this.originalWidth){
+            this.vel.y += 7;
+
+        }
+    }
+    duck(){
+        if (this.pos.y == this.calcGroundPos()){
+            this.height = this.originalWidth;
+            this.width = this.originalHeight;
+        }
+    }
+    unDuck(){
+        if (this.pos.y == this.calcGroundPos()){
+            this.height = this.originalHeight;
+            this.width = this.originalWidth;
         }
     }
     show(){
