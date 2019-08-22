@@ -3,24 +3,31 @@ class Dino {
         this.width = 30;
         this.height = 50;
 
-        this.pos = createVector(width/4, this.calcGroundPosition());
+        this.pos = createVector(width/4, height - height/ 4 - this.height / 2);
         this.vel = createVector();
 
         this.playerControlled = playerControlled;
     }
 
-    calcGroundPosition(){
-        return (this.calcGroundPosition())
-    }
+    calcGroundPos(){
+        return(height-height/4-this.height/2);
+    }    
 
-    update(){
+    update(){]
+        groundPos=this.calcGroundPos();
         this.vel.y += -0.25;
         this.pos.y -= this.vel.y;
 
-        if(this.pos.y >= this.calcGroundPosition()){
-            this.pos.y = this.calcGroundPosition();
+        if(this.pos.y >= groundPos){
+            this.pos.y = groundPos;
             this.vel.y = 0;
         
+    }
+    jump(){
+        if this.pos.y == this.calcGroundPos(){
+            this.vel.y = 7;
+            
+        }
     }
     show(){
         push();
