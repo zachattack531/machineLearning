@@ -8,6 +8,10 @@ class Dino {
         this.playerControlled = playerControlled;
     }
 
+    update(){
+        this.vel.y += -0.25;
+        this.pos.y -= this.vel.y;
+    }
     show(){
         push();
         noStroke();
@@ -17,6 +21,9 @@ class Dino {
         }else{
             fill(0,100,0,100);
         }
+        rectMode(CENTER);
+        rect(0,0,this.width,this.height);
+        pop();
     }
 
     hitCactus(cactus) {
