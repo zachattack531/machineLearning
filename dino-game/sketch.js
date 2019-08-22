@@ -1,11 +1,16 @@
 let ground;
-let cactus
 let dinos = [];
+let cacti = [];
+
+let spawnCactusFrame;
 function setup() {
     createCanvas(640,480);
     ground = new Ground();
-    cactus = new Cactus();
+
+    spawnCactusFrame = 40; 
+    cacti.push(new Cactus());
     firstGeneration();
+
 }
 
 function draw() {
@@ -13,13 +18,18 @@ function draw() {
 
     ground.show();
 
-    if (cactus.pos.x >= -cactus.width){
-        cactus.update();
-        cactus.show();
-    } else {
-        cactus = new Cactus();
+    if(frameCount == spawnCactusFrame){
+        cacti.push(new Cactus());
+        spawnCactusFrame += int(random(40,100));
     }
-     
+    for (let i = 0; i < cacti.length; i++){
+        cacti[i].update();
+        cacti[i].show();
+    
+        if(cacti[i].pos.x < -cacti[i].width){
+            cacti.shift
+        }
+    }
     for(let i = 0; i < dinos.length; i++){
         if(dinos[i].playerControlled){
             if(keyIsDown(DOWN_ARROW)){
@@ -27,10 +37,23 @@ function draw() {
             }else{
                 dinos[i].unDuck();
             }
+
+            if(keyIsDown(UP_ARROW)){
+                dinos[i].jump();
+            }
         }
-        dinos[i].update();
+        dinos[i].update(getClosestCactus(dinos[i]));
         dinos[i].show();
     }
+}
+
+function getClosestCactus(dino){
+    let closestIndex = 0;
+
+    while(cacti[closestIndex].pos.x+cacti[closestIndex].fullWidth/2<dino.pos.x - dino.width){
+        closestIndex++;
+    }
+    return cacti[closestIndex];
 }
 function firstGeneration(){ 
     dinos = [];

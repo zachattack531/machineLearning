@@ -9,13 +9,16 @@ class Dino {
         this.vel = createVector();
 
         this.playerControlled = playerControlled;
+
+        this.isAlive = true;
+
     }
 
     calcGroundPos(){
         return(height-height/4-this.height/2);
     }    
 
-    update(){
+    update(closestCactus){
         let groundPos = this.calcGroundPos();
         this.vel.y += -0.9;
         this.pos.y -= this.vel.y;
@@ -25,11 +28,15 @@ class Dino {
             this.vel.y = 0;
             
         }
+
+        if(this.hitCactus(closestCactus)){
+            this.isAlive = false;
+        }
     }
 
     jump(){
         if (this.pos.y == this.calcGroundPos()&&this.height > this.originalWidth){
-            this.vel.y += 13;
+            this.vel.y += 8;
 
         }
     }

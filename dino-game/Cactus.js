@@ -7,6 +7,7 @@ class Cactus {
         this.pos = createVector(width+this.width+this.width/2,height-height/4 - this.height/2);
         this.spacing = 5;
         
+        this.fullWidth = (this.width + this.spacing) * this.count - this.spacing;
     }
     update(){
         this.pos.x-=this.speed;
