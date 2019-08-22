@@ -13,7 +13,7 @@ class Dino {
         return(height-height/4-this.height/2);
     }    
 
-    update(){]
+    update(){
         groundPos=this.calcGroundPos();
         this.vel.y += -0.25;
         this.pos.y -= this.vel.y;
@@ -26,7 +26,7 @@ class Dino {
     jump(){
         if this.pos.y == this.calcGroundPos(){
             this.vel.y = 7;
-            
+
         }
     }
     show(){

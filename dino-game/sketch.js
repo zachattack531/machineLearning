@@ -10,6 +10,7 @@ function draw() {
     background(255);
     ground.show();
     for(let i = 0; i < dinos.length; i++){
+        dinos[i].update();
         dinos[i].show();
     }
 }
