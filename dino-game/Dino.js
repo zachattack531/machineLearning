@@ -1,6 +1,22 @@
 class Dino {
-    constructor() {
+    constructor(playerControlled) {
+        this.width = 30;
+        this.height = 50;
+        this.pos = createVector(width/4, height - height/ 4 - this.height / 2);
+        this.vel = createVector();
 
+        this.playerControlled = playerControlled;
+    }
+
+    show(){
+        push();
+        noStroke();
+        translate(this.pos.x, this.pos.y);
+        if (this.playerControlled){
+            fill(0,0,100,100);
+        }else{
+            fill(0,100,0,100)
+        }
     }
 
     hitCactus(cactus) {
