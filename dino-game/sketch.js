@@ -84,11 +84,11 @@ function getClosestCactus(dino){
 }
 function firstGeneration(){ 
     dinos = [];
-    dinos.push(new Dino(true));
+    dinos.push(new Dino(false, new NeuralNetwork(2, 4, 3)));
 }
 function nextGeneration(){
     dinos = [];
-    dinos.push(new Dino(true));
+    dinos.push(new Dino(false, new NeuralNetwork(2, 4, 3)));
 
     spawnCactusFrame = frameCount+40;
     cacti= [];

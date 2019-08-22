@@ -45,9 +45,7 @@ class NeuralNetwork {
 
             const ys = this.model.predict(xs); 
 
-            const output = ys.dataSync();
-
-            return output  // convert tensor to array
+            return ys.dataSync();  // convert tensor to array
         }); 
     }
 }
