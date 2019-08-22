@@ -1,8 +1,10 @@
 let ground;
+let cactus
 let dinos = [];
 function setup() {
     createCanvas(640,480);
     ground = new Ground();
+    cactus = new Cactus();
     firstGeneration();
 }
 
@@ -11,6 +13,12 @@ function draw() {
 
     ground.show();
 
+    if (cactus.pos.x >= -cactus.width){
+        cactus.update();
+        cactus.show();
+    } else {
+        cactus = new Cactus();
+    }
      
     for(let i = 0; i < dinos.length; i++){
         if(dinos[i].playerControlled){
