@@ -2,15 +2,25 @@ class Dino {
     constructor(playerControlled) {
         this.width = 30;
         this.height = 50;
-        this.pos = createVector(width/4, height - height/ 4 - this.height / 2);
+
+        this.pos = createVector(width/4, this.calcGroundPosition());
         this.vel = createVector();
 
         this.playerControlled = playerControlled;
     }
 
+    calcGroundPosition(){
+        return (this.calcGroundPosition())
+    }
+
     update(){
         this.vel.y += -0.25;
         this.pos.y -= this.vel.y;
+
+        if(this.pos.y >= this.calcGroundPosition()){
+            this.pos.y = this.calcGroundPosition();
+            this.vel.y = 0;
+        
     }
     show(){
         push();
