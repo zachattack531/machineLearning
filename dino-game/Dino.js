@@ -15,7 +15,7 @@ class Dino {
         if (this.playerControlled){
             fill(0,0,100,100);
         }else{
-            fill(0,100,0,100)
+            fill(0,100,0,100);
         }
     }
 
