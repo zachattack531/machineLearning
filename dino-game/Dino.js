@@ -13,6 +13,8 @@ class Dino {
         this.isAlive = true;
 
         this.brain = brain;
+
+        this.score = 0;
     }
 
     calcGroundPos(){
@@ -20,12 +22,11 @@ class Dino {
     }    
 
     update(closestCactus){
+
+        this.score = score;
         let groundPos = this.calcGroundPos();
-        this.vel.y -= 0.9;
+        this.vel.y -= 0.7;
         this.pos.y -= this.vel.y;
-        if(!this.playerControlled){
-            this.think(closestCactus)
-        }
         
         if(this.pos.y >= groundPos){
             this.pos.y = groundPos;
@@ -36,6 +37,9 @@ class Dino {
         if(this.hitCactus(closestCactus)){
             this.isAlive = false;
         }
+        if(!this.playerControlled){
+            this.think(closestCactus);
+        }
         
     }
 
@@ -43,14 +47,14 @@ class Dino {
         let distance =cactus.pos.x - cactus.width/2 - this.pos.x+ this.width/2;
         let actions = this.brain.predict([distance, cactus.count]);
         let choice = actions.indexOf(Math.max(...actions));
-        if choice == 0{
+        if (choice == 0){
             //Jump
             this.unDuck();
             this.jump();
         }else if (choice == 1){
             //Duck
             this.duck();
-        }else{}
+        }else{
             //Do nothing
             this.unDuck();
         }

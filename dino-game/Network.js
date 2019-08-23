@@ -48,4 +48,42 @@ class NeuralNetwork {
             return ys.dataSync();  // convert tensor to array
         }); 
     }
+    copy(){
+        return tf.tidy(() => {
+
+            const modelCopy = this.createModel();
+            const weights = this.model.getWeights();
+
+            const weightsCopies = [];
+            for (let i = 0; i <weights.length; i++){
+                weightsCopies[i] = weights[i].clone();
+            }
+
+            modelCopy.setWeights(weightsCopies);
+
+            return new NeuralNetwork(modelCopy, this.inputNodes, this.hiddenNodes, this.outputNodes);
+        });
+    }
+    mutate(rate){
+        return tf.tidy(() => {
+            const weights = this.model.getWeights();
+            const mutatedWeights = [];
+            for (let i = 0; i < weights.length; i++){
+                let tensor = weights[i];
+                let shape = weights[i].shape;
+                let values = tensor.dataSync().slice();
+
+                for(let j = 0; j < values; j++){
+                    if(random(1)<rate){
+                        let w = values[j];
+                        values[j] = w + randomGaussian();
+                    }
+                }
+
+                let newTensor = tf.tensor(values,shape);
+                mutatedWeights[i] = newTensor;
+            }
+            this.model.setWeights(mutatedWeights);
+        });
+    }
 }
