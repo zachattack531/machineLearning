@@ -25,7 +25,7 @@ class Dino {
 
         this.score = score;
         let groundPos = this.calcGroundPos();
-        this.vel.y -= 0.7;
+        this.vel.y -= 0.25;
         this.pos.y -= this.vel.y;
         
         if(this.pos.y >= groundPos){
@@ -44,7 +44,11 @@ class Dino {
     }
 
     think(cactus){
+        
         let distance =cactus.pos.x - cactus.width/2 - this.pos.x+ this.width/2;
+        if(distance <= 0){
+            distance = 0;
+        }
         let actions = this.brain.predict([distance, cactus.count]);
         let choice = actions.indexOf(Math.max(...actions));
         if (choice == 0){

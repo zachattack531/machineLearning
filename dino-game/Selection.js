@@ -13,7 +13,7 @@ class Selection {
         console.log(maxScore)
         for(let i =0; i <lastGeneration.length; i++){
             if(!lastGeneration[i].playerControlled){
-                let selectionCount = int(lastGeneration[i].score / maxScore*10);
+                let selectionCount = lastGeneration[i].score / maxScore*10;
                 for(let j = 0; j < selectionCount; j++){
                     selectionPool.push(lastGeneration[i]);
                 }

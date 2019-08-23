@@ -70,11 +70,12 @@ function draw() {
         }
         if(dinos[i].isAlive){
             allDead = false;
-            dinos[i].update(getClosestCactus(dinos[i]), score);
+            dinos[i].update(getClosestCactus(dinos[i]));
             dinos[i].show();
         }
     }
-    if (allDead){
+   
+    if (allDead || score == 2000){
         nextGeneration();
     }
 }
@@ -96,10 +97,10 @@ function firstGeneration(){
 }
 function nextGeneration(){
 
-    dinos = selection.createNewGeneration(DINO_COUNT, dinos, 0.25);
+    dinos = selection.createNewGeneration(DINO_COUNT, dinos, 0.99);
     dinos.push(new Dino(true));
 
-    spawnCactusFrame = frameCount+40;
+    spawnCactusFrame = frameCount+int(random(40,90));
     cacti= [];
     cacti.push(new Cactus());
 

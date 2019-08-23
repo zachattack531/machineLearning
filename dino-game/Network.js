@@ -22,11 +22,6 @@ class NeuralNetwork {
             activation: 'sigmoid'
         })
         model.add(hidden);
-        const hidden2 = tf.layers.dense({
-            units: this.hiddenNodes,
-            activation: 'sigmoid'
-        })
-        model.add(hidden2);
         const output = tf.layers.dense({
             units: this.outputNodes,
             activation: 'softmax'
